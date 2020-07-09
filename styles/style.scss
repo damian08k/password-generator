@@ -1,1 +1,7 @@
-@import 'reset';
+@import './functions/reset';
+@import './functions/functions';
+@import './functions/variables';
+@import './components/main';
+@import './components/generator';
+@import './components/generator_left';
+@import './components/generator_right';

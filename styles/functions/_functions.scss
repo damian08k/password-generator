@@ -1,0 +1,21 @@
+// media queries
+@mixin mq($breakpoint) {
+    $size: map-get($breakpoints, $breakpoint);
+
+    @if($size) {
+        @media #{$size} {
+            @content;
+        }
+    }
+
+    @else {
+        @error '"#{breakpoint}" - not found';
+    }
+}
+
+
+// flex wrap func
+@mixin flex-wrap() {
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,22 @@
+.generator {
+    display: flex;
+    flex-basis: 100%;
+    max-width: 1000px;
+    margin: 0 20px;
+    border: 1px solid black;
+
+    @include mq(mobileLarge) {
+        margin: 0 auto;
+    }
+
+    &__left-block {
+        flex-basis: 60%;
+        padding: 5px;
+        border-right: 1px solid black;
+    }
+
+    &__right-block {
+        flex-basis: 40%;
+        padding: 5px;
+    }
+}
