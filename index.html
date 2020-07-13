@@ -17,19 +17,28 @@
             <h2 class="generator-left__title">Create password:</h2>
 
             <label for="letters" class="generator-left__label">Number of characters: </label>
-            <input type="number" name="letters" id="letters" class="generator-left__input" min="8" max="14">
+            <input type="number" name="letters" id="letters"
+                class="generator-left__input generator-left__input--characters" min="8" max="14">
 
-            <label for="small-letters" class="generator-left__label">Number of small letters: </label>
-            <input type="number" name="small-letters" id="small-letters" class="generator-left__input" min="1" max="10">
+            <label for="small-letters" class="generator-left__label generator-left__label--special">Number of small
+                letters:</label>
+            <input type="number" name="small-letters" id="small-letters"
+                class="generator-left__input generator-left__input--special" min="1" max="10">
 
-            <label for="big-letters" class="generator-left__label">Number of big letters: </label>
-            <input type="number" name="big-letters" id="big-letters" class="generator-left__input" min="1" max="10">
+            <label for="big-letters" class="generator-left__label generator-left__label--special">Number of big letters:
+            </label>
+            <input type="number" name="big-letters" id="big-letters"
+                class="generator-left__input generator-left__input--special" min="1" max="10">
 
-            <label for="digitals" class="generator-left__label">Number of digitals: </label>
-            <input type="number" name="digitals" id="digitals" class="generator-left__input" min="1" max="10">
+            <label for="digitals" class="generator-left__label generator-left__label--special">Number of digitals:
+            </label>
+            <input type="number" name="digitals" id="digitals"
+                class="generator-left__input generator-left__input--special" min="1" max="10">
 
-            <label for="special" class="generator-left__label">Number of special signs: </label>
-            <input type="number" name="special" id="special" class="generator-left__input" min="1" max="10">
+            <label for="special" class="generator-left__label generator-left__label--special">Number of special signs:
+            </label>
+            <input type="number" name="special" id="special"
+                class="generator-left__input generator-left__input--special" min="1" max="10">
 
             <button class="generator-left__generate-password">Create password</button>
         </div>
