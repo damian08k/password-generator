@@ -58,19 +58,19 @@ const drawingSigns = (value) => {
     for (let i = 1; i <= value; i++) {
         switch (inputPosition) {
             case 0:
-                randomNumber = Math.floor(Math.random() * passwordSigns.smallLetters.length + 1)
+                randomNumber = Math.floor(Math.random() * passwordSigns.smallLetters.length)
                 password += passwordSigns.smallLetters[randomNumber];
                 break;
             case 1:
-                randomNumber = Math.floor(Math.random() * passwordSigns.bigLetters.length + 1)
+                randomNumber = Math.floor(Math.random() * passwordSigns.bigLetters.length)
                 password += passwordSigns.bigLetters[randomNumber];
                 break;
             case 2:
-                randomNumber = Math.floor(Math.random() * passwordSigns.digitals.length + 1)
+                randomNumber = Math.floor(Math.random() * passwordSigns.digitals.length)
                 password += passwordSigns.digitals[randomNumber];
                 break;
             case 3:
-                randomNumber = Math.floor(Math.random() * passwordSigns.specialSigns.length + 1)
+                randomNumber = Math.floor(Math.random() * passwordSigns.specialSigns.length)
                 password += passwordSigns.specialSigns[randomNumber];
                 break;
         }
@@ -80,28 +80,32 @@ const drawingSigns = (value) => {
     return password;
 }
 
+const clearPasswordAndInputPosition = () => {
+    password = "";
+    inputPosition = 0;
+}
+
 const createPassword = () => {
     let numChars = inputCharacters.value;
     let smallLet = inputSpecials[0].value;
     let bigLet = inputSpecials[1].value;
     let digitals = inputSpecials[2].value;
     let specSigns = inputSpecials[3].value;
+    const allValues = [smallLet, bigLet, digitals, specSigns];
 
     const canCreate = checkInputsValues(numChars);
     const isCorrect = checkIsCorrectValues(numChars, smallLet, bigLet, digitals, specSigns);
 
     if (canCreate && isCorrect) {
 
-        drawingSigns(smallLet);
-        drawingSigns(bigLet);
-        drawingSigns(digitals);
-        drawingSigns(specSigns);
+        allValues.forEach(value => drawingSigns(value));
 
         console.log(password, inputPosition);
 
     }
 
     clearInputsValues();
+    clearPasswordAndInputPosition();
 }
 
 passwordBtn.addEventListener("click", createPassword);
