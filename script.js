@@ -1,5 +1,6 @@
 const passwordBtn = document.querySelector(".generator-left__generate-password");
 const inputCharacters = document.querySelector(".generator-left__input--characters");
+const generatorRightArea = document.querySelector(".generator-right");
 const inputSpecials = document.querySelectorAll(".generator-left__input--special");
 const labelsSpecials = document.querySelectorAll(".generator-left__label--special");
 
@@ -85,6 +86,15 @@ const clearPasswordAndInputPosition = () => {
     inputPosition = 0;
 }
 
+const checkParagraphExist = () => {
+    const passwordParagraph = document.querySelector(".generator-right__password");
+
+    if (passwordParagraph !== null) {
+        generatorRightArea.removeChild(passwordParagraph);
+    }
+
+}
+
 const createPassword = () => {
     let numChars = inputCharacters.value;
     let smallLet = inputSpecials[0].value;
@@ -97,12 +107,16 @@ const createPassword = () => {
     const isCorrect = checkIsCorrectValues(numChars, smallLet, bigLet, digitals, specSigns);
 
     if (canCreate && isCorrect) {
-
         allValues.forEach(value => drawingSigns(value));
-
-        console.log(password, inputPosition);
-
     }
+
+    checkParagraphExist();
+    const paragraph = document.createElement("p");
+    paragraph.classList.add("generator-right__password");
+    paragraph.textContent = password.split('').sort(() => 0.5 - Math.random()).join('');
+    generatorRightArea.appendChild(paragraph);
+
+    console.log(password, inputPosition);
 
     clearInputsValues();
     clearPasswordAndInputPosition();
