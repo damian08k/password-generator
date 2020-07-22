@@ -116,8 +116,6 @@ const createPassword = () => {
     paragraph.textContent = password.split('').sort(() => 0.5 - Math.random()).join('');
     generatorRightArea.appendChild(paragraph);
 
-    console.log(password, inputPosition);
-
     clearInputsValues();
     clearPasswordAndInputPosition();
 }
